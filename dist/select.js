@@ -199,6 +199,12 @@ angular.module('ui.select', [])
     if (ctrl.open) {
       _resetSearchInput();
       ctrl.open = false;
+
+      // Give it time to appear before focus
+      $timeout(function () {
+        var _selectButton = $element.querySelectorAll("button.ui-select-match");
+          _selectButton[0].focus();
+      });
     }
   };
 
